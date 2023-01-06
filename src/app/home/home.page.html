@@ -1,0 +1,206 @@
+<ion-content>
+  <!--******************************* LOGOUT *******************************-->
+  <ion-grid
+    style="display: flex; flex-flow: column; height: 10%"
+    *ngIf="chat == 0"
+  >
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <button class="btn btn-danger" (click)="logoutUser()">
+          Cerrar Sesión
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--******************************* MENU BOTONES INICIALES *******************************-->
+  <div style="width: 100%; height: 90%" *ngIf="chat == 0">
+    <ion-grid style="display: flex; flex-flow: column; height: 100%">
+      <ion-row style="flex-grow: 1; margin-bottom: 1rem; height: 50%">
+        <ion-col class="btn-chat-A" (click)="showChat4A()">
+          <div>
+            <h2>PPS-4A</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="flex-grow: 1; margin-bottom: 1rem; height: 50%">
+        <ion-col class="btn-chat-B" (click)="showChat4B()">
+          <h2>PPS-4B</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!--******************************* CHAT 4A *******************************-->
+  <section class="chat-container" *ngIf="chat == 1" style="height: 100%">
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon style="color: rgb(196, 5, 170)" name="menu-sharp"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button
+          (click)="goToClassrooms()"
+          style="border: 1px solid #000; border-radius: 50%"
+          ><ion-icon
+            name="chatbubbles-outline"
+            style="
+              color: rgb(196, 5, 170);
+              background: rgb(255, 255, 255);
+              padding: 5px;
+              font-size: 3rem;
+            "
+          ></ion-icon
+        ></ion-fab-button>
+        <ion-fab-button
+          (click)="logoutUser()"
+          style="border: 1px solid #000; border-radius: 50%"
+          ><ion-icon
+            name="exit-sharp"
+            style="
+              color: rgb(196, 5, 170);
+              background: rgb(255, 255, 255);
+              padding: 5px;
+              font-size: 3rem;
+            "
+          ></ion-icon
+        ></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <div class="card text-center contenedor-carta-a view-from-right">
+      <div class="card-header card-header-a">CONVERSACIÓN 4°A</div>
+
+      <div class="card-body-a">
+        <div id="contenedor-mensajes" class="contenedor-mensajes">
+          <p
+            *ngFor="let message of messageListA"
+            class="p-3 mensajes"
+            [ngClass]="
+              user.userId == message.user.userId
+                ? 'mensaje-enviado'
+                : 'mensaje-recibido'
+            "
+          >
+            <!-- <span
+              [ngClass]="user.userId == message.user.userId ? 'email-1' : 'email-2'"
+              >{{ message.user.userName }}</span
+            > -->
+            <span
+              *ngIf="user.userId != message.user.userId"
+              [ngClass]="user.userId == message.user.userId ? 'email-1' : 'email-2'"
+              >{{ message.user.userName }}<br
+            /></span>
+            {{ message.text }} <br />
+            <span class="fecha">{{ message.date }}</span>
+          </p>
+        </div>
+      </div>
+
+      <form class="card-footer card-footer-a text-muted input-group">
+        <input
+          type="text"
+          class="form-control form-control-a"
+          placeholder="Ingrese su mensaje"
+          [(ngModel)]="newMessage"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <div class="input-group-append" (click)="sendMessageA()">
+          <span class="input-group-text btn-enviar-a" id="basic-addon2">
+            <span><ion-icon name="send-outline"></ion-icon></span>
+          </span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!--******************************* CHAT 4B*******************************-->
+  <section class="chat-container" *ngIf="chat == 2" style="height: 100%">
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon style="color: rgb(61, 206, 17)" name="menu-sharp"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button
+          (click)="goToClassrooms()"
+          style="border: 1px solid #000; border-radius: 50%"
+          ><ion-icon
+            name="chatbubbles-outline"
+            style="
+              color: rgb(61, 206, 17);
+              background: rgb(255, 255, 255);
+              padding: 5px;
+              font-size: 3rem;
+            "
+          ></ion-icon
+        ></ion-fab-button>
+        <ion-fab-button
+          (click)="logoutUser()"
+          style="border: 1px solid #000; border-radius: 50%"
+          ><ion-icon
+            name="exit-sharp"
+            style="
+              color: rgb(61, 206, 17);
+              background: rgb(255, 255, 255);
+              padding: 5px;
+              font-size: 3rem;
+            "
+          ></ion-icon
+        ></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <div class="card text-center contenedor-carta-b view-from-right">
+      <div class="card-header card-header-b">CONVERSACIÓN 4°B</div>
+
+      <div class="card-body-b">
+        <div id="contenedor-mensajes" class="contenedor-mensajes">
+          <p
+            *ngFor="let message of messageListB"
+            class="p-2 mensajes"
+            [ngClass]="
+              user.userId == message.user.userId
+                ? 'mensaje-enviado'
+                : 'mensaje-recibido'
+            "
+          >
+            <!-- <span
+              [ngClass]="user.userId == message.user.userId ? 'email-1' : 'email-2'"
+              >{{ message.user.userName }}</span
+            > -->
+            <span
+              *ngIf="user.userId != message.user.userId"
+              [ngClass]="user.userId == message.user.userId ? 'email-1' : 'email-2'"
+              >{{ message.user.userName }}</span
+            >
+            <br />
+            {{ message.text }} <br />
+            <span class="fecha">{{ message.date }}</span>
+          </p>
+        </div>
+      </div>
+
+      <form class="card-footer card-footer-b text-muted input-group">
+        <input
+          type="text"
+          class="form-control form-control-b"
+          placeholder="Ingrese su mensaje"
+          [(ngModel)]="newMessage"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <div class="input-group-append" (click)="sendMessageB()">
+          <span class="input-group-text btn-enviar-b" id="basic-addon2">
+            <span><ion-icon name="send-outline"></ion-icon></span>
+          </span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!--******************************* SPINNER *******************************-->
+  <ion-spinner
+    *ngIf="pressedButton"
+    name="lines"
+    color="warning"
+    style="display: block; margin: auto; position: inherit"
+  ></ion-spinner>
+</ion-content>

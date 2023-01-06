@@ -1,0 +1,237 @@
+ion-content {
+  --background: rgb(254, 255, 4);
+  --background: linear-gradient(
+    87deg,
+    rgba(254, 255, 4, 1) 0%,
+    rgba(249, 125, 10, 0.84404184036896) 100%,
+    rgba(29, 119, 144, 1) 100%
+  );
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  .btn-danger {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    box-shadow: 2px 2px 3px #000;
+  }
+  .btn-danger:active {
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+
+  .btn-chat-A {
+    background: url("../../assets/pps4a.png");
+    background-size: contain;
+    background-position: center;
+    border-radius: 15px;
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    h2 {
+      color: rgb(255, 255, 255);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.8rem;
+      font-weight: bolder;
+      line-height: 14rem;
+      background: rgba(255, 0, 255, 0.3);
+      border-radius: 15px;
+      text-shadow: 2px 2px 4px #000;
+    }
+  }
+  .btn-chat-A:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 16px rgb(192, 0, 192);
+    transition: transform 0.3s;
+  }
+
+  .btn-chat-B {
+    background: url("../../assets/pps4b.png");
+    background-size: contain;
+    background-position: center;
+    border-radius: 15px;
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    box-shadow: 2px 2px 3px #000;
+    h2 {
+      width: 100%;
+      background: rgba(0, 217, 255, 0.3);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.8rem;
+      font-weight: bolder;
+      line-height: 14rem;
+      border-radius: 15px;
+      text-shadow: 2px 2px 4px #000;
+    }
+  }
+  .btn-chat-B:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 16px rgb(1, 255, 221);
+    transition: transform 0.3s;
+  }
+}
+
+// CONVERSACION 4A  *************************************************************
+
+.contenedor-carta-a {
+  width: 99%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px rgb(196, 5, 170);
+}
+
+.card-body-a {
+  overflow: hidden;
+  height: 100%;
+  background-image: url("../../assets/chat.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 16px rgb(196, 5, 170);
+}
+
+.card-header-a {
+  background-color: rgb(104, 15, 92);
+  color: white;
+  font-weight: bolder;
+  box-shadow: 0 0 16px rgb(196, 5, 170);
+}
+
+.form-control-a {
+  background: rgb(1, 2, 63);
+  color: #fff;
+}
+.form-control-a::placeholder {
+  color: rgb(207, 204, 204);
+}
+
+.btn-enviar-a {
+  cursor: pointer;
+  color: #fff;
+  background: rgb(104, 15, 92);
+}
+
+.btn-enviar-a:active {
+  transition: all 0.5s;
+  transform: scale(0.8);
+}
+
+.contenedor-mensajes {
+  overflow: scroll;
+  padding: 0.3rem;
+  height: 100%;
+}
+
+.contenedor-mensajes::-webkit-scrollbar {
+  display: none;
+}
+
+.card-footer-a {
+  background: rgba(196, 5, 170, 0.507);
+  box-shadow: 0 0 16px rgb(196, 5, 170);
+}
+
+.mensaje-enviado {
+  display: block;
+  float: right;
+  background-color: rgba(54, 219, 17, 0.4);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  min-width: 50.1%;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.mensaje-recibido {
+  display: block;
+  float: left;
+  background-color: rgba(196, 70, 221, 0.4);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  min-width: 60.1%;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.email-1 {
+  font-size: 0.7;
+  color: rgb(49, 199, 240);
+}
+
+.email-2 {
+  font-size: 0.7;
+  color: rgb(240, 173, 49);
+}
+
+.fecha {
+  font-size: 0.6rem;
+  text-decoration: underline;
+  color: rgb(235, 229, 229);
+  text-align: right;
+  font-weight: lighter;
+  float: right;
+}
+
+.view-from-right {
+  animation: viewFromRight 0.5s;
+}
+
+@keyframes viewFromRight {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// CONVERSACION 4B *************************************************************
+
+.contenedor-carta-b {
+  width: 99%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-body-b {
+  height: 100%;
+  overflow: hidden;
+  background-image: url("../../assets/chat-b.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 16px rgb(61, 206, 17);
+}
+
+.card-header-b {
+  background-color: rgb(5, 160, 31);
+  color: white;
+  font-weight: bolder;
+  box-shadow: 0 0 16px rgb(9, 255, 0);
+}
+
+.form-control-b {
+  background: rgb(29, 28, 28);
+  color: #fff;
+}
+.form-control-b::placeholder {
+  color: rgb(207, 204, 204);
+}
+
+.btn-enviar-b {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background: rgb(9, 255, 0);
+}
+
+.btn-enviar-b:active {
+  transition: all 0.5s;
+  transform: scale(0.8);
+}
+
+.card-footer-b {
+  background: rgba(11, 95, 3, 0.712);
+  box-shadow: 0 0 16px rgb(61, 206, 17);
+}
